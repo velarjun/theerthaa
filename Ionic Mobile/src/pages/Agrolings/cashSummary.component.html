@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Account Summary</ion-title>    
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <div class="col-md-12">
+        <div *ngFor="let acc of accSummary let i = index" >
+           <div class="col-xs-3 mnuBox1 mnuboxColor{{i+1}}">
+              <span> {{acc.account_type }}<br></span>
+              <span> {{acc.actual_amount }}</span>   
+           </div>
+                 
+                                  
+        </div>    
+    </div>                                
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title> <button id="btnSubmit"  [ngClass]="{btnStyl:true}"
+          name="btnSubmit"  (click)="btnGetAccsummary()">Get the Report</button></ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+
+

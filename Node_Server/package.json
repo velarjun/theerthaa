@@ -1,0 +1,28 @@
+{
+  "name": "node_server",
+  "version": "1.0.0",
+  "description": "codebehind for the stock",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "vigneshraj AV",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.1",
+    "mongodb": "^2.2.25",
+    "mssql": "^3.3.0",
+    "mysql": "^2.15.0",
+    "node-rest-client": "^3.0.3",
+    "soap": "^0.18.0",
+    "string-builder": "^0.1.4",
+    "stringbuilder": "0.0.11",
+    "url": "^0.11.0",
+    "xml2js": "^0.4.17",
+    "xmlbuilder": "^8.2.2",
+    "xmldoc": "^1.0.0"
+  }
+}

@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sales</ion-title>    
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >  
+  
+    <tr>
+        <td>
+         <label>Delivery Date</label>
+        </td>
+        <td>
+          <input [ngClass]="{'input_txtBox':true}" type="date" [(ngModel)] =Sales.date_sale (change)="dateChanged()">
+        </td>        
+      </tr>
+  <tr>
+      <td><label>Raw-Material</label></td>
+    <td>
+      <select [ngClass]="{'input_txtBox':true}" (change)="filterForeCasts($event.target.value)" [(ngModel)]=Sales.Type>
+        <option value="0">--Select--</option>
+        <option *ngFor="let summary of summaries" value={{summary}}>
+            {{summary}}
+        </option>
+    </select>
+    </td>      
+  </tr>    
+  <tr>
+    <td>
+  <label>KG</label>
+    </td>
+      <td>  
+  <input  [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=Sales.Kg/>
+      </td>
+  </tr>
+  <tr>
+    <td>
+  <label>Price Per KG</label>
+    </td>
+    <td>
+  <input  [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=Sales.Price/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+  <label>Supplier Name</label>
+    </td>
+    <td>
+  <input  [ngClass]="{'input_txtBox':true}" type="text" [(ngModel)]=Sales.Name/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+  <label>Place</label>
+    </td>
+<td>
+  <input  [ngClass]="{'input_txtBox':true}" type="text" [(ngModel)]=Sales.Place/>
+</td>
+  </tr>
+  <tr>
+    <td>
+
+  <label >Phone Number</label>
+    </td>
+<td>
+  <input   [ngClass]="{'input_txtBox':true}" type="number" maxlength="10" [(ngModel)]=Sales.PhoneNumber/>
+</td>
+  </tr>
+  <tr>
+    <td>
+
+  <label>Total Amount</label>
+    </td>
+    <td>
+  <span  [ngClass]="{'amtTxt':true}">{{Sales.Price*Sales.Kg}}</span>
+    </td>
+  </tr>
+</table>
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-title> 
+          <table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >  
+           
+            <tr >
+                <td  colspan="2" >
+                <button id="btnPurchase" [ngClass]="{btnStyl:true}" 
+                name="btnPurchase"  (click)="btnSalesClick($event)">Submit</button>
+              </td>
+            </tr>
+      </table>
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>

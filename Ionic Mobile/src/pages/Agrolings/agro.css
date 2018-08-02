@@ -1,0 +1,81 @@
+ 
+  table, th, td {
+    border: 0px;
+    padding: 8px;
+    border-collapse: collapse;
+}
+th{
+  background: #ccc;
+}
+.txtHd
+{
+   font-size: 1.5em;
+   background: #f8fc0beb;
+   font-weight: 700;
+   color: #864e04;
+   text-align: center;
+}
+.trHt
+{ height: 15px;}
+.input_txtBox
+{ width:95%;
+ border: 1px solid #864e04;
+padding: 3px;
+color: dimgrey}
+.amtTxt
+{
+  font-size: 2em;
+  color:#864e04;
+}
+.btnStyl
+{ color: #fff;
+  background: #864e04;
+  border: 1px solid #864e04;
+  width: 100%;
+  
+  border-radius: 5px;
+  font-weight: none ! Important;
+  font-size: 1.3em;
+
+}
+.mnuBox1
+{
+   padding: 5%; font-size: 1.5em;
+   color: #692802;
+   text-align: center;
+
+   margin: 2%;
+   
+}
+
+
+.mnuboxColor1
+{
+  background: #fdf502;
+}
+.mnuboxColor2
+{
+  background: #f9d44e;
+}
+.mnuboxColor3
+{
+  background: #f5a52d;
+}
+.mnuboxColor4
+{
+  background: #c1da36;
+}
+.mnuboxColor5
+{
+  background: #dbec7a;
+}
+.mnuboxColor6
+{
+  background: #0845ec;
+}
+.mnuBox1 a
+{ text-decoration: none;  color: #692802;}
+
+.clrfx{ display: block; clear: both;}
+
+label{color:#864e03;}

@@ -1,0 +1,7 @@
+{
+  "name": "Agrolings",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

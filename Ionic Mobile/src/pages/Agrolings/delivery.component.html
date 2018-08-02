@@ -1,0 +1,156 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Delivery</ion-title>    
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>    
+  <div [hidden]="hideDeliveryOrder">
+<table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >  
+    <tr>
+        <td>
+         <label>Delivery Date</label>
+        </td>
+        <td>
+          <input [ngClass]="{'input_txtBox':true}" type="date" [(ngModel)] =delivery.date_sale (change)="dateChanged()">
+        </td>
+        <td>
+            <button id="btnGrinding"  [ngClass]="{btnStyl:true}"
+            name="btnGrinding"  (click)="btnDeliveryOption()">Delivery Details</button>
+        </td>
+      </tr>
+    <tr>
+        <td>    
+      <label>Customer Name</label>
+        </td>
+    <td>
+      <input [ngClass]="{'input_txtBox':true}" type="text" [(ngModel)]=delivery.customer_name/>
+    </td>
+      </tr>
+      <tr>
+          <td>    
+        <label>Customer Address</label>
+          </td>
+      <td>        
+        <textarea name="comment" [ngClass]="{'input_txtBox':true}" [(ngModel)]=delivery.customer_address >Enter text here...</textarea>
+      </td>
+         </tr>
+
+              <tr>
+            <td>    
+          <label>Customer Phone</label>
+            </td>
+        <td>
+          <input [ngClass]="{'input_txtBox':true}" type="tel" [(ngModel)]=delivery.phone_number/>
+        </td>
+              </tr>
+
+              <tr>
+              <td>
+                <label>Delivery Person</label> 
+              </td>
+              <td>
+                <select [ngClass]="{'input_txtBox':true}"  [(ngModel)]=delivery.deliv_person >   
+                  <option *ngFor="let summary of Persons" [ngValue]="summary">
+                      {{summary}}
+                  </option>
+              </select>
+              </td>
+              </tr>   
+            
+              <tr>
+                <td>
+                  <label>Credit Customer</label> 
+                </td>
+                <td>
+                  <select [ngClass]="{'input_txtBox':true}"  [(ngModel)]=delivery.deliv_credit_person >   
+                    <option *ngFor="let summary of Persons" [ngValue]="summary">
+                        {{summary}}
+                    </option>
+                </select>
+                </td>
+              </tr> 
+
+              <tr>
+                  <td>
+                    <label>Item</label> 
+                    <button id="btnGrinding"  [ngClass]="{btnStyl:true}"
+                    name="btnadditem"  (click)="btnaddItemClick()">Add Item</button>
+                  </td>                  
+                  <td>
+                    <select [ngClass]="{'input_txtBox':true}"  [(ngModel)]=delivery.deliv_item >   
+                      <option *ngFor="let summary of Items" [ngValue]="summary">
+                          {{summary}}
+                      </option>
+                  </select>
+                  </td>
+                  <td>
+                      <select [ngClass]="{'input_txtBox':true}"  [(ngModel)]=delivery.deliv_quantity >   
+                        <option *ngFor="let summary of Quantity" [ngValue]="summary">
+                            {{summary}}
+                        </option>
+                    </select>
+                    </td>
+                    <td>
+                        <input [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=delivery.deliv_count/>
+                      </td>
+              </tr>    
+</table>
+<div *ngFor="let acc of orderItem let i = index" >                
+    <div class="col-xs-3 mnuBox1 mnuboxColor{{i+1}}">
+       <span> {{acc.Items }}</span>
+       <span> {{acc.Quantity }}</span>   
+       <span> {{acc.Count }}</span>   
+    </div>
+          
+                           
+ </div>  
+ </div> 
+ <div [hidden]="!hideDeliveryOrder">
+    <label>Delivery Date</label>       
+    <input [ngClass]="{'input_txtBox':true}" type="date" [(ngModel)] =delivery.date_sale (change)="dateChanged()">
+    <table  border="0"  style="width:100%" >        
+          <tr *ngFor="let order of orderDetails let i = index" >            
+              <td colspan="2" class="col-xs-3 mnuBox1 mnuboxColor{{i+1}}">
+                  <span> {{order.Name }}</span> 
+              </td>
+               <td  colspan="2" class="col-xs-3 mnuBox1 mnuboxColor{{i+1}}">
+               <span> {{order.PhoneNumber }}</span>           
+              </td>
+              <td  colspan="2" class="col-xs-3 mnuBox1 mnuboxColor{{i+1}}">
+               <button id="btnviewDelivery"  [ngClass]="{btnStyl:true}"
+                (click)="btnviewDelivery(order.PhoneNumber)">View</button>
+              </td>         
+          </tr>                                                           
+        
+    </table>    
+         <div *ngFor="let acc of orderItem let i = index" >
+            <div class="col-xs-3 mnuBox1 mnuboxColor{{i+1}}">
+               <span> {{acc.item }}</span>
+               <span> {{acc.Quantity }}</span>   
+               <span> {{acc.Count }}</span>   
+            </div>
+         </div>      
+                               
+</div>
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-title> 
+          <table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >  
+          <tr >
+              <td  colspan="2" >
+              <button id="btnGrinding"  [ngClass]="{btnStyl:true}"
+        name="btnGrinding"  (click)="btnDeliveryClick($event)">Submit</button>
+        </td>
+        </tr>
+      </table>
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>

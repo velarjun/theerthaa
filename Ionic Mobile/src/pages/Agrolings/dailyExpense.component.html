@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Daily Expenses</ion-title>    
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+<table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >  
+    <tr>
+        <td>
+         <label>Date</label>
+        </td>
+        <td>
+          <input [ngClass]="{'input_txtBox':true}" type="date" [(ngModel)] =expense.expense_date (change)="dateChanged()">
+        </td>
+      </tr>
+      <tr>
+          <td><label>Expense-type</label></td>
+        <td>
+          <select [ngClass]="{'input_txtBox':true}" (change)="ddlextype()" [(ngModel)]=expense.expense_type>
+            <option value="0">--Select--</option>
+            <option *ngFor="let summary of extype" value={{summary}}>
+                {{summary}}
+            </option>
+        </select>
+        </td>      
+      </tr>      
+  <tr>
+      <td><label>Expense-Material</label></td>
+    <td>
+      <select [ngClass]="{'input_txtBox':true}" (change)="ddlexMaterial()" [(ngModel)]=expense.material_name  [hidden]="hideddl">
+        <option value="0">--Select--</option>
+        <option *ngFor="let summary of exmaterial" value={{summary}}>
+            {{summary}}
+        </option>
+    </select>
+    <input [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=expense.material_name  [hidden]="!hideddl"/>
+    </td>      
+  </tr>  
+  <tr>
+      <td><label>Expense-Mode</label></td>
+    <td>
+      <select [ngClass]="{'input_txtBox':true}" [(ngModel)]=expense.expense_mode  >
+        <option value="0">--Select--</option>
+        <option *ngFor="let summary of exMode" value={{summary}}>
+            {{summary}}
+        </option>
+    </select>    
+    </td>      
+  </tr>  
+  <tr>
+      <td>
+    <label>Expense-Description</label>
+      </td>
+        <td>  
+    <input [ngClass]="{'input_txtBox':true}" type="text" [(ngModel)]=expense.exxpense_desc/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+      <label>Amount</label>
+        </td>
+          <td>  
+      <input [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=expense.expense_amount/>
+          </td>
+      </tr>    
+</table>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title> 
+      <button id="btnGrinding"  [ngClass]="{btnStyl:true}"
+      name="btnGrinding"  (click)="btnExpenseClick($event)">Submit</button>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+
+

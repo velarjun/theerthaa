@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Report</ion-title>    
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >  
+    <tr>
+        <td>
+         <label>Delivery Date</label>
+        </td>
+        <td>
+          <input [ngClass]="{'input_txtBox':true}" type="date" [(ngModel)] =report.date_sale (change)="dateChanged()">
+        </td>      
+      </tr>
+  <tr>
+      <td><label>Raw-Material</label></td>
+    <td>
+      <select  [ngClass]="{'input_txtBox':true}" (change)="filterForeCasts($event.target.value)">
+        <option value="0">--Select--</option>
+        <option *ngFor="let summary of summaries" value={{summary}}>
+            {{summary}}
+        </option>
+    </select>
+    </td>      
+  </tr>    
+  <tr>
+    <td>
+  <label>Total Cake</label>
+    </td>
+      <td>  
+  <label  [ngClass]="{'amtTxt':true}">{{selectedType.Tcake}}</label>
+      </td>
+  </tr>
+  <tr>
+    <td>
+  <label>Total Cake Sold</label>
+    </td>
+      <td>  
+        <label  [ngClass]="{'amtTxt':true}">{{selectedType.SCake}}</label>
+      </td>
+  </tr>
+  <tr>
+    <td>
+  <label>Balance Cake</label>
+    </td>
+    <td>
+      <label  [ngClass]="{'amtTxt':true}">{{selectedType.BCake}}</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+  <label> Total Oil </label>
+    </td>
+    <td>
+      <label  [ngClass]="{'amtTxt':true}">{{selectedType.TOil}}</label>
+    </td>
+  </tr>
+  
+</table>
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-title> 
+          <table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >  
+              <tr >
+                  <td  colspan="2" >
+                  <button id="btnPurchase" [ngClass]="{btnStyl:true}" 
+                  name="btnPurchase"  (click)="btnReportClick($event)">Submit</button>
+                </td>
+              </tr>
+      </table>
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>
+
+
+
+

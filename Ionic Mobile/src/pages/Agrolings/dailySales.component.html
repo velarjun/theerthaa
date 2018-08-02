@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Daily Sales</ion-title>    
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+<table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >  
+ <tr>
+   <td>
+    <label>Date</label>
+   </td>
+   <td>
+     <input [ngClass]="{'input_txtBox':true}" type="date" [(ngModel)] =Sales.date_sale (change)="dateChanged()">
+   </td>
+ </tr>
+ <tr>
+  <td>
+    <label>Person</label> 
+  </td>
+  <td>
+    <select [ngClass]="{'input_txtBox':true}"  [(ngModel)]=Sales.person_sale >   
+      <option *ngFor="let summary of Persons" [ngValue]="summary">
+          {{summary}}
+      </option>
+  </select>
+  </td>
+</tr>     
+  <tr>
+    <td>
+  <label>Cash</label>
+    </td>
+      <td>  
+  <input [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=Sales.cash_sale/>
+      </td>
+  </tr>
+
+  <tr>
+    <td>
+  <label>Card</label>
+    </td>
+      <td>  
+  <input [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=Sales.card_sale/>
+      </td>
+  </tr>
+
+  <tr>
+    <td>
+  <label>Credit</label>
+    </td>
+      <td>  
+  <input [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=Sales.credit_sale/>
+      </td>
+  </tr>
+
+  <tr>
+    <td>
+  <label>Personal Account</label>
+    </td>
+      <td>  
+  <input [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=Sales.personal_acc_sale/>
+      </td>
+  </tr>
+
+  <tr>
+    <td>
+  <label>Current Account</label>
+    </td>
+      <td>  
+  <input [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=Sales.current_acc_sale/>
+      </td>
+  </tr>
+
+  <tr>
+    <td>
+  <label>Paytm</label>
+    </td>
+      <td>  
+  <input [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=Sales.paytm_sale/>
+      </td>
+  </tr>
+  
+ 
+</table>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-title> 
+          <table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >  
+          <tr >
+              <td>
+                  <button id="btnUpdate"  [ngClass]="{btnStyl:true}"
+              name="btnUpdate"  (click)="btnSalesUpdate($event)">Update</button>
+                </td>
+              <td  >
+              <button id="btnSubmit"  [ngClass]="{btnStyl:true}"
+          name="btnSubmit"  (click)="btnSalesClick($event)">Submit</button>
+            </td>    
+        </tr>
+      </table>
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>
+
+
+
