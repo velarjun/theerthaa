@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 xml2js = require('xml2js');
 var DataBaseCall = require('./modules/DataBaseCall.js');
+var CashTransfer = require('./modules/CashTransfer.js');
 fs = require('fs');
 
 app.use(session({
@@ -169,6 +170,14 @@ app.post('/InsertDailySales', function(req, res) {
  });
  
 
+
+ app.post('/insertcashtransfer', function(req, res) {
+  var srtPostCode = req.body.cashTrasferDetail;
+  CashTransfer.InsertCashTrasfer(srtPostCode, function (response) { 
+    console.log(response)
+    res.json(response);
+   });
+ });
  
 
 
