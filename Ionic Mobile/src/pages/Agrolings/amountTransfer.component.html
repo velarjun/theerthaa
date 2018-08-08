@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Amount Transfer</ion-title>    
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >  
+  
+    <tr>
+        <td>
+         <label> Date</label>
+        </td>
+        <td>
+          <input [ngClass]="{'input_txtBox':true}" type="date" [(ngModel)] =transferDetails.transferDate (change)="dateChanged()">
+        </td>        
+      </tr>
+  <tr>
+      <td><label>Amount From</label></td>
+    <td>
+      <select [ngClass]="{'input_txtBox':true}" (change)="filterForeCasts($event.target.value)" [(ngModel)]=transferDetails.transferFrom>
+        <option value="0">--Select--</option>
+        <option *ngFor="let summary of CashTransferType" value={{summary}}>
+            {{summary}}
+        </option>
+    </select>
+    </td>      
+  </tr>
+  <tr>
+    <td><label>Amount To</label></td>
+  <td>
+    <select [ngClass]="{'input_txtBox':true}" (change)="filterForeCasts($event.target.value)" [(ngModel)]=transferDetails.transferTo>
+      <option value="0">--Select--</option>
+      <option *ngFor="let summary of CashTransferType" value={{summary}}>
+          {{summary}}
+      </option>
+  </select>
+  </td>      
+</tr>     
+<tr>
+  <td>
+<label>Amount</label>
+  </td>
+    <td>  
+<input [ngClass]="{'input_txtBox':true}" type="number" [(ngModel)]=transferDetails.transferAmount/>
+    </td>
+</tr>    
+</table>
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-title> 
+          <table cell-padding="5" border="0" cell-spacing="3" style="width:100%" >             
+            <tr >
+                <td  colspan="2" >
+                <button id="btnTransfer" [ngClass]="{btnStyl:true}" 
+                name="btnTransfer"  (click)="btnTransferClick($event)">Transfer</button>
+              </td>
+            </tr>
+      </table>
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>
